@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root{--navy:#070b1f;--pur:#8b5cf6;--pink:#f472b6}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:radial-gradient(900px 500px at 85% -5%,rgba(139,92,246,.28),transparent),radial-gradient(700px 500px at -5% 30%,rgba(244,114,182,.12),transparent),#070b1f;color:#e8e9ff;font-family:Inter,system-ui,sans-serif;min-height:100vh}
+h1,h2,h3,.hd{font-family:Sora,Inter,sans-serif;letter-spacing:-.02em}
+.glass{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,.35);transition:transform .3s,border-color .3s}
+.glass:hover{transform:translateY(-3px);border-color:rgba(167,139,250,.55)}
+.grad{background:linear-gradient(135deg,#6d28d9,#a21caf 60%,#ec4899)}
+.btn{transition:transform .15s,box-shadow .3s,filter .3s;cursor:pointer}.btn:hover{filter:brightness(1.12);box-shadow:0 0 28px rgba(167,139,250,.45)}.btn:active{transform:scale(.96)}
+.inp{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px 14px 14px 42px;color:#fff;outline:none;font-size:15px}
+.inp:focus{border-color:#a78bfa;box-shadow:0 0 0 3px rgba(167,139,250,.25)}
+.sel{border-color:#a78bfa!important;box-shadow:0 0 30px rgba(139,92,246,.4)}
+.draw{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 1.8s ease forwards}
+.glowline{animation:glow 2.4s ease-in-out infinite}
+.ring{transform-box:fill-box;transform-origin:center;animation:ring 2.2s ease-out infinite}
+.scan{animation:scan 1.6s linear infinite}
+.up{animation:up .6s ease both}
+.float{animation:float 5s ease-in-out infinite}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes glow{0%,100%{filter:drop-shadow(0 0 3px #a78bfa)}50%{filter:drop-shadow(0 0 12px #f472b6)}}
+@keyframes ring{0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.6);opacity:0}}
+@keyframes scan{from{transform:translateX(-120px)}to{transform:translateX(820px)}}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+
+.leaflet-container{background:#0a1030;font-family:Inter,sans-serif}
+.leaflet-tile-pane{filter:invert(1) hue-rotate(200deg) brightness(.8) contrast(.9) saturate(.55)}
+.leaflet-control-attribution{background:rgba(7,11,31,.7)!important;color:#94a3b8!important}
+.leaflet-control-attribution a{color:#a78bfa!important}
+.leaflet-control-zoom a{background:#111a45!important;color:#fff!important;border-color:rgba(255,255,255,.15)!important}
+.mk{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#0b1030;border:2px solid var(--c);box-shadow:0 0 12px var(--c);font-size:13px}
+.mk i{position:absolute;inset:-2px;border-radius:50%;border:2px solid var(--c);animation:ring 2.2s ease-out infinite}
+.route-line{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw2 1.8s ease forwards}
+.route-line.glowline{animation:draw2 1.8s ease forwards,glow 2.4s ease-in-out infinite}
+.scan2{position:absolute;top:0;bottom:0;width:120px;background:linear-gradient(90deg,transparent,rgba(167,139,250,.3),transparent);animation:scanx 1.6s linear infinite;pointer-events:none}
+@keyframes draw2{to{stroke-dashoffset:0}}
+@keyframes scanx{from{left:-120px}to{left:100%}}
